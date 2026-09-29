@@ -1,0 +1,11 @@
+{
+  "name": "worldfast",
+  "private": true,
+  "description": "Web de Worldfast (worldfast.es) como sitio estático",
+  "scripts": {
+    "dev": "npx serve public -l 3000"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

@@ -1,0 +1,242 @@
+/*
+ Theme Name:   Worldfast Child
+Description:  Worldfast Child
+ Template:     worldfast 
+ Text Domain:  worldfast-child
+*/+
+/*** reCaptcha ***/
+.anr_captcha_field {
+    clear: both !important;
+}
+
+
+/***home***/
+
+.h1-ficticio {
+
+font-size: 25px; 
+text-align: center;
+color: #444444;}
+
+
+.subtitulo {
+
+font-size: 18px; 
+text-align: center;
+color: #444444;}
+
+button.ubtn-normal {
+
+padding: 8px 30px !important; }
+
+
+/*** fin home***/
+
+/***top bar***/
+
+
+.top-bar {
+
+padding: 10px 0px 0px 0; 
+font-size: 13px !important;
+background: #000000 !important; }
+
+/***fin topbar***/
+
+/***idiomas topbar***/
+#lang_sel_list a.lang_sel_sel {
+
+color: #ffffff; }
+
+#lang_sel_list a:visited {
+
+color: #ffffff; 
+background: #000000; }
+
+#lang_sel_list ul a {
+background: #000000; 
+color: #ffffff; }
+
+/***fin idiomas top bar***/
+
+/***breadcrumbs***/
+
+.page-heading.bc-type-2 {
+
+background: #FDE479; }
+
+.page-heading .container > .row {
+
+display: none; }
+
+.page-heading {
+
+padding: 10px 0; 
+border-top: none !important; 
+border-bottom: none !important; }
+
+.page-heading .container > .row {
+display: none; }
+
+
+/*** fin breadcrumbs***/
+
+/***sidebar***/
+
+.col-md-pull-9 {
+right: 80%; }
+
+input[type="text"] {
+
+padding: 0px; }
+
+input[type="email"] {
+padding: 0px; }
+
+textarea {
+padding: 0px 0px; }
+
+input[type=submit] {
+
+color: #444; 
+padding: 9px 20px; 
+background-color: #FECD01; }
+
+/***fin sidebar***/
+
+/***contador***/
+
+.cifras {
+font-size: 18px; 
+font-weight: 500;
+line-height: 3;
+color: #444444; }
+
+/***contador***/
+
+/**contacto**/
+.formulario-nombre {
+
+float: left;
+margin-right: 10px;
+width: 40%;  }
+
+.formulario-nombre input {
+width: 100%; }
+
+.formulario-email  {
+
+float: left;
+width: 40%; }
+
+.formulario-email input {
+
+width: 100%; }
+
+.formulario-mensaje {
+
+width: 100%; 
+float: left; 
+}
+
+.formulario-mensaje textarea {
+
+width: 81%;
+height: 210px; }
+
+.formulario-requerido {
+
+    float: left;
+    width: 69%;
+    font-size: 13px; }
+
+
+.formulario-enviar {
+
+float: left; }
+
+.formulario-enviar input {
+
+padding: 9px 23px;
+background: #EFCA30;
+color: #444444;
+font-size: 15px; }
+
+div.wpcf7-validation-errors, .wpcf7-mail-sent-ok {
+
+float: left; }
+
+
+@media screen and (max-width: 500px) {
+
+.formulario-nombre, .formulario-email, .formulario-mensaje textarea, .formulario-requerido, .formulario-enviar {
+
+width: 100%;  }
+
+.formulario-enviar {
+text-align: center;  }
+
+.formulario-enviar input {
+
+padding: 11px 100px; }}
+
+/***fin contacto***/
+
+/*** footer ***/
+
+.main-footer {
+
+background: #E7EBEB; 
+}
+
+.copyright-3, .copyright {
+background: #E7EBEB; }
+
+.copyright-3 .container .row-copyrights, .copyright .container .row-copyrights {
+
+border-top: 1px; }
+
+.main-footer p {
+
+font: 13px/18px 'Open Sans', Arial, Helvetica, sans-serif !important; 
+
+color: #444444; }
+
+/*** fin footer ***/
+
+
+/***responsive***/
+
+@media only screen and (max-width: 800px) {
+#st-trigger-effects {
+
+top: 22% !important; }}
+
+@media only screen and (max-width: 400px) { 
+.navbar {
+
+padding: 0px 16px 63px 16px !important; }
+
+#lang_sel_list a {
+  font-size: 12px;
+  padding-left: 5px;
+  padding-right: 20px;
+  padding-top: 11px;}}
+
+@media only screen and (max-width: 1200px) {
+.content-page {
+    margin-top: -28px;
+}}
+
+
+.et-mobile-menu li a {
+
+color: #ffffff !important; }
+
+/***fin responsive***/
+
+/***Corregir mensaje formulario***/
+.wpcf7-response-output{margin-top:150px!important;}
+
+
+/***End Corregir mensaje formulario***/
