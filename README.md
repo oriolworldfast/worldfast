@@ -43,14 +43,17 @@ npm run dev        # http://localhost:3000
 
 1. Importar el repositorio en Vercel (Framework preset: **Other**). Vercel sirve la
    carpeta `public/` y despliega `api/contact.js` como función.
-2. Configurar las variables de entorno del formulario de contacto:
-   | Variable     | Ejemplo                    |
-   |--------------|----------------------------|
-   | `SMTP_HOST`  | servidor SMTP de cdmon     |
-   | `SMTP_PORT`  | `465`                      |
-   | `SMTP_USER`  | `info@worldfast.es`        |
-   | `SMTP_PASS`  | contraseña del buzón       |
-   | `CONTACT_TO` | `info@worldfast.es` (opcional) |
+2. Configurar el envío del formulario de contacto con [Resend](https://resend.com):
+   - En Resend, añadir y verificar el dominio `worldfast.es` (Resend indica unos registros
+     DNS que hay que crear en cdmon; no afectan al correo actual de cdmon).
+   - Crear una API key con permiso de envío.
+   - En Vercel → Settings → Environment Variables:
+     | Variable         | Valor                                              |
+     |------------------|----------------------------------------------------|
+     | `RESEND_API_KEY` | la API key de Resend                               |
+     | `CONTACT_FROM`   | opcional, por defecto `Web Worldfast <web@worldfast.es>` |
+     | `CONTACT_TO`     | opcional, por defecto `info@worldfast.es` (admite varios separados por comas) |
+   - Volver a desplegar para que la función coja las variables.
 3. Añadir el dominio `worldfast.es` / `www.worldfast.es` en Vercel y cambiar los DNS
    en cdmon a los que indique Vercel. **El correo (registros MX) se queda en cdmon**:
    solo hay que cambiar los registros A/CNAME de la web.
@@ -59,7 +62,7 @@ npm run dev        # http://localhost:3000
 
 - No hay panel de administración: los cambios se hacen editando los ficheros.
 - El formulario de contacto ya no usa Contact Form 7 ni Cloudflare Turnstile; se valida
-  en el navegador, mantiene el campo trampa anti-spam y se envía con `api/contact.js`.
+  en el navegador, mantiene el campo trampa anti-spam y se envía por email con Resend desde `api/contact.js`.
 - Se han quitado enlaces internos de WordPress (wp-json, xmlrpc, feeds, oEmbed).
 - Enlaces que en WordPress apuntaban al antiguo servidor de pruebas (immograf.com)
   ahora apuntan a las páginas e imágenes de la propia web.
