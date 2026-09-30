@@ -1,0 +1,77 @@
+/* Sección CBAM. Reutiliza la tipografía del tema (Roboto / Open Sans) y su paleta:
+   amarillo #efca30, gris oscuro #333333, gris claro #f2f2f2. */
+
+.cbam-page .cbam-lead { font-size: 17px; line-height: 1.7; max-width: 860px; margin: 0 auto 10px; text-align: center; }
+.cbam-page h2.cbam-title { text-align: center; margin: 0 0 8px; }
+.cbam-page .cbam-rayas { display: block; margin: 0 auto 30px; }
+.cbam-page .cbam-section { padding-top: 50px; padding-bottom: 50px; }
+.cbam-page .cbam-section p, .cbam-page .cbam-section li { font-size: 15px; line-height: 1.7; }
+.cbam-page .cbam-narrow { max-width: 860px; margin: 0 auto; }
+
+/* Bandas a todo el ancho, como las filas grises y oscuras de la home */
+.cbam-band { position: relative; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); padding-left: calc(50vw - 50%); padding-right: calc(50vw - 50%); }
+.cbam-band--light { background: #f2f2f2; }
+.cbam-band--dark { background: #333333; color: #e7ebeb; }
+.cbam-band--dark h2, .cbam-band--dark h3, .cbam-band--dark p { color: #e7ebeb; }
+.cbam-band--yellow { background: #efca30; }
+.cbam-band--yellow p { color: #000; }
+
+/* Glosario breve */
+.cbam-terms { margin: 25px auto 0; max-width: 860px; border-left: 3px solid #efca30; padding: 5px 0 5px 20px; }
+.cbam-terms dt { font-weight: 600; color: #333; margin-top: 10px; }
+.cbam-terms dd { margin: 2px 0 0; }
+
+/* Recargo por año */
+.cbam-markup { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 25px 0 10px; }
+.cbam-markup div { background: #fff; border-top: 3px solid #efca30; padding: 15px 25px; text-align: center; min-width: 150px; }
+.cbam-markup strong { display: block; font-family: Roboto, sans-serif; font-size: 28px; font-weight: 400; color: #333; }
+
+/* Tabla del ejemplo */
+.cbam-table-wrap { overflow-x: auto; margin: 20px 0 10px; }
+.cbam-table { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; font-size: 15px; }
+.cbam-table th, .cbam-table td { padding: 12px 15px; border-bottom: 1px solid #e1e1e1; text-align: right; vertical-align: top; }
+.cbam-table th:first-child, .cbam-table td:first-child { text-align: left; }
+.cbam-table thead th { background: #333; color: #fff; font-weight: 600; font-size: 14px; text-transform: uppercase; }
+.cbam-table thead th.cbam-good { background: #efca30; color: #000; }
+.cbam-table tr.cbam-total td { font-weight: 700; border-bottom: 0; }
+.cbam-note { font-size: 13px !important; color: #777; font-style: italic; }
+
+/* Lista de funciones de la plataforma */
+.cbam-features { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px 30px; }
+.cbam-features li { position: relative; padding-left: 28px; }
+.cbam-features li:before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; background: #efca30; transform: rotate(45deg) scale(.75); }
+.cbam-features strong { color: #333; }
+
+/* Plazos */
+.cbam-timeline { list-style: none; padding: 0; margin: 25px auto 0; max-width: 860px; }
+.cbam-timeline li { display: flex; gap: 20px; padding: 14px 0; border-bottom: 1px solid #e1e1e1; }
+.cbam-timeline li:last-child { border-bottom: 0; }
+.cbam-timeline .cbam-when { flex: 0 0 150px; font-family: Roboto, sans-serif; font-weight: 500; color: #333; }
+
+/* Pasos */
+.cbam-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 30px; counter-reset: cbam-step; }
+.cbam-step { text-align: center; }
+.cbam-step:before { counter-increment: cbam-step; content: counter(cbam-step); display: flex; align-items: center; justify-content: center; width: 48px; height: 48px; margin: 0 auto 15px; border-radius: 50%; background: #efca30; color: #000; font-family: Roboto, sans-serif; font-size: 22px; }
+.cbam-step h3 { font-size: 18px; margin-bottom: 8px; }
+.cbam-step .cbam-time { display: block; font-size: 13px; color: #777; margin-bottom: 8px; text-transform: uppercase; letter-spacing: .5px; }
+
+/* Botones con el estilo de los botones del tema */
+.cbam-buttons { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 25px; }
+.cbam-btn { display: inline-block; padding: 10px 30px; background: #efca30; color: #000 !important; font-size: 15px; text-transform: uppercase; text-decoration: none !important; border: 2px solid #efca30; transition: background .2s, color .2s; }
+.cbam-btn:hover { background: transparent; color: #333 !important; }
+.cbam-band--dark .cbam-btn:hover { color: #efca30 !important; }
+.cbam-btn--ghost { background: transparent; color: #333 !important; }
+.cbam-btn--ghost:hover { background: #efca30; color: #000 !important; }
+.cbam-band--dark .cbam-btn--ghost { color: #e7ebeb !important; }
+.cbam-band--dark .cbam-btn--ghost:hover { color: #000 !important; }
+
+/* Bloque de la home */
+.cbam-home { text-align: center; padding: 20px 0 40px; }
+.cbam-home h3 { font-size: 26px; width: auto; display: inline-block; padding: 5px 10px; border-bottom: 2px solid #efca30; }
+.cbam-home p { max-width: 820px; margin: 20px auto 0; }
+
+@media (max-width: 767px) {
+  .cbam-timeline li { flex-direction: column; gap: 4px; }
+  .cbam-timeline .cbam-when { flex-basis: auto; }
+  .cbam-page .cbam-section { padding-top: 35px; padding-bottom: 35px; }
+}

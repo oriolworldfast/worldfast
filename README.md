@@ -16,8 +16,17 @@ public/                  La web tal cual se publica
   wp-content/            Imágenes, tema, CSS y JS heredados de WordPress
   assets/contact-form.js Formulario de contacto (sustituye a Contact Form 7)
 api/contact.js           Función serverless que envía el formulario por email
+src/cbam/es.html, en.html Contenido de la sección CBAM (/cbam/ y /en/cbam/)
 tools/import_wordpress.py Script usado para convertir el volcado de WordPress
+tools/build_cbam.py      Genera las páginas CBAM y añade "CBAM" al menú y a la home
 ```
+
+### Sección CBAM
+
+El texto de la sección CBAM se edita en `src/cbam/es.html` y `src/cbam/en.html`; después
+se ejecuta `python3 tools/build_cbam.py`, que regenera `public/cbam/` y `public/en/cbam/`
+con la cabecera, menú y pie de la web (se puede ejecutar tantas veces como haga falta).
+Los estilos propios de la sección están en `public/assets/cbam.css`.
 
 Para cambiar un texto basta con editar el `index.html` de la página correspondiente
 (por ejemplo `public/sobre-nosotros/index.html`). Las imágenes están en
