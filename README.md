@@ -12,7 +12,7 @@ estilos, vídeo de cabecera, sliders e idiomas (ES / EN / CA).
 public/                  La web tal cual se publica
   index.html             Home (ES)
   contacto/ productos/ servicios/ sobre-nosotros/ wf-services/ ...
-  en/  ca/               Versiones en inglés y catalán
+  en/                    Versión en inglés (ca/ son páginas en español con URL heredada)
   wp-content/            Imágenes, tema, CSS y JS heredados de WordPress
   assets/contact-form.js Formulario de contacto (sustituye a Contact Form 7)
 api/contact.js           Función serverless que envía el formulario por email
