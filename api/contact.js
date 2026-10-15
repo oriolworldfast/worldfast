@@ -4,6 +4,8 @@
 //   CONTACT_FROM    -> remitente, de un dominio verificado en Resend
 //                      (por defecto "Web Worldfast <web@worldfast.es>")
 //   CONTACT_TO      -> destinatario (por defecto info@worldfast.es)
+//   CONTACT_TO_CBAM -> destinatario del formulario de la sección CBAM
+//                      (por defecto cbam@worldfast.es)
 
 const FIELDS = {
   'your-name': 'Nombre',
@@ -46,6 +48,11 @@ module.exports = async (req, res) => {
         `<tr><td style="vertical-align:top;font-weight:bold">${label}</td><td style="white-space:pre-wrap">${escapeHtml(value)}</td></tr>`
     )
     .join('')}</table>`;
+  const page = String(body.page || '');
+  const isCbam = /^\/(?:en\/)?cbam(?:\/|$)/.test(page);
+  const to = isCbam
+    ? process.env.CONTACT_TO_CBAM || 'cbam@worldfast.es'
+    : process.env.CONTACT_TO || 'info@worldfast.es';
   const subject = String(body['your-subject'] || 'Nuevo mensaje de contacto').replace(/[\r\n]+/g, ' ').slice(0, 200);
 
   if (!process.env.RESEND_API_KEY) {
@@ -62,7 +69,7 @@ module.exports = async (req, res) => {
       },
       body: JSON.stringify({
         from: process.env.CONTACT_FROM || 'Web Worldfast <web@worldfast.es>',
-        to: (process.env.CONTACT_TO || 'info@worldfast.es').split(',').map((s) => s.trim()),
+        to: to.split(',').map((s) => s.trim()),
         reply_to: email,
         subject: `[worldfast.es] ${subject}`,
         text,
