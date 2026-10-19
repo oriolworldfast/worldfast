@@ -23,6 +23,7 @@ SRC = os.path.join(ROOT, 'src', 'cbam')
 SITE = 'https://worldfast.es'
 CSS_LINK = '<link rel="stylesheet" id="cbam-css" href="/assets/cbam.css" type="text/css" media="all" />\n'
 FORM_JS = '<script src="/assets/contact-form.js" defer></script>\n'
+VIDEO_JS = '<script src="/assets/cbam-video.js" defer></script>\n'
 KEYWORDS = 'CBAM fasteners, CBAM monitoring plan, CBAM tornillos, CBAM 7318'
 
 LANGS = {
@@ -201,6 +202,8 @@ def build_page(lang):
     h = add_css(h)
     if FORM_JS not in h:
         h = h.replace('</body>', FORM_JS + '</body>', 1)
+    if 'cbam-band--video' in h and VIDEO_JS not in h:
+        h = h.replace('</body>', VIDEO_JS + '</body>', 1)
     h = add_menu_item(h, lang, current=True)
     write(cfg['out'], h)
     return cfg['out']
