@@ -542,19 +542,29 @@ font-size: 14px;}
 	</div>
 </section>
 
-<section class="cbam-section cbam-band cbam-band--dark cbam-video-section">
-	<h2 class="cbam-title">CBAM WORLDFAST IN TWO MINUTES</h2>
-	<p class="cbam-lead">The problem, how our application works and the key dates (1:55).</p>
-	<div class="cbam-video">
-		<video controls playsinline preload="metadata" poster="/assets/video/cbam-worldfast-en-poster.jpg" aria-label="CBAM Worldfast presentation video">
-			<source src="/assets/video/cbam-worldfast-en.mp4" type="video/mp4" />
-			<a href="/assets/video/cbam-worldfast-en.mp4">Download the video (MP4)</a>
-		</video>
+<section class="cbam-section cbam-band cbam-band--video" id="cbam-video">
+	<div class="cbam-video-layout">
+		<div class="cbam-video-text">
+			<h2>CBAM WORLDFAST IN TWO MINUTES</h2>
+			<p>What CBAM changes for your factory, how our application works step by step and which dates you need to keep in mind.</p>
+			<ol class="cbam-chapters">
+				<li><button type="button" data-time="0"><span>0:00</span>The problem</button></li>
+				<li><button type="button" data-time="42"><span>0:42</span>The app in five steps</button></li>
+				<li><button type="button" data-time="89"><span>1:29</span>Key dates</button></li>
+			</ol>
+		</div>
+		<div class="cbam-video-player">
+			<video controls playsinline preload="metadata" poster="/assets/video/cbam-worldfast-en-poster.jpg" aria-label="CBAM Worldfast presentation video">
+				<source src="/assets/video/cbam-worldfast-en.mp4" type="video/mp4" />
+				<a href="/assets/video/cbam-worldfast-en.mp4">Download the video (MP4)</a>
+			</video>
+			<button type="button" class="cbam-play" hidden>Watch the video <span>1:55</span></button>
+		</div>
 	</div>
 </section>
 
 <section class="cbam-section cbam-band cbam-band--light">
-	<h2 class="cbam-title">WHAT CBAM IS</h2>
+	<h2 class="cbam-title">WHAT IS CBAM?</h2>
 	<img class="cbam-rayas" src="/wp-content/uploads/rayas.png" alt="" width="48" height="48" />
 	<div class="cbam-narrow">
 		<h3 class="cbam-headline">Your EU customer pays for the carbon embedded in your screws. The amount depends on your data.</h3>
@@ -950,6 +960,7 @@ var myAjax = {"ajaxurl":"https:\/\/worldfast.es\/wp-admin\/admin-ajax.php","nore
 <script type="text/javascript" src="../../wp-content/themes/worldfast/js/etheme.min.js" id="etheme-js"></script>
 <script type="text/javascript" src="../../wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js" id="wpb_composer_front_js-js"></script>
 <script></script><script src="/assets/contact-form.js" defer></script>
+<script src="/assets/cbam-video.js" defer></script>
 </body>
 
 </html>
