@@ -39,17 +39,21 @@ LANGS = {
         'title': 'CBAM para fabricantes de tornillos y fijaciones (NC 7318) | Worldfast',
         'description': ('CBAM tornillos: plan de monitoreo, cálculo de emisiones incorporadas y apoyo '
                         'en la verificación para fabricantes de fijaciones (código NC 7318) que exportan a la UE.'),
-        'home_block': '''
-<div class="vc_row wpb_row vc_row-fluid cbam-home-row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
-	<div class="cbam-home">
-		<h3>CBAM PARA FABRICANTES DE FIJACIONES</h3>
-		<p>Desde el 1 de enero de 2026, las importaciones de fijaciones de hierro y acero sujetas al CBAM tienen un coste de carbono. Worldfast prepara su plan de monitoreo y le acompaña en el cálculo de emisiones y en la verificación, con nuestra propia plataforma, cbam.worldfast.es.</p>
-		<div class="cbam-buttons">
-			<a class="cbam-btn" href="/cbam/">Más información</a>
-			<a class="cbam-btn cbam-btn--ghost" href="https://cbam.worldfast.es" target="_blank" rel="noopener">cbam.worldfast.es</a>
-		</div>
-	</div>
-</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><hr class="divider  " /></div></div></div></div>''',
+        'home_texts': {
+            'badge': 'Nuevo servicio',
+            'title': 'CBAM para fabricantes de <strong>fijaciones</strong>',
+            'lead': ('Desde el 1 de enero de 2026, las importaciones de fijaciones de hierro y acero sujetas al CBAM '
+                     'tienen un coste de carbono. Worldfast prepara su plan de monitoreo y le acompaña en el cálculo '
+                     'de emisiones y en la verificación, con nuestra propia aplicación.'),
+            'stat_default': ('7,01', 'Emisiones por defecto de la UE – China, NC 7318 15'),
+            'stat_real': ('2,07', 'Emisiones reales verificadas – ejemplo'),
+            'points': ['Plan de monitoreo listo para el verificador', 'Emisiones calculadas por código NC',
+                       'Acompañamiento en la verificación'],
+            'cta': 'Descubra el servicio',
+            'app_label': 'Así funciona la aplicación',
+            'steps': ['Planta y procesos', 'Compras de acero', 'Gas y electricidad', 'Emisiones por producto',
+                      'Plan de monitoreo'],
+        },
     },
     'en': {
         'template': 'en/about-us/index.html',
@@ -63,17 +67,21 @@ LANGS = {
         'title': 'CBAM for fastener manufacturers: monitoring plan and embedded emissions (CN 7318) | Worldfast',
         'description': ('CBAM fasteners: monitoring plan, embedded emissions calculation and verification '
                         'support for screw, bolt, nut and washer manufacturers (CN 7318) exporting to the EU.'),
-        'home_block': '''
-<div class="vc_row wpb_row vc_row-fluid cbam-home-row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
-	<div class="cbam-home">
-		<h3>CBAM FOR FASTENER MANUFACTURERS</h3>
-		<p>Since 1 January 2026, imports of iron and steel fasteners covered by CBAM are subject to a carbon cost. Worldfast prepares your Monitoring Plan and supports you through emissions calculation and verification, with our own platform, cbam.worldfast.es.</p>
-		<div class="cbam-buttons">
-			<a class="cbam-btn" href="/en/cbam/">Learn more</a>
-			<a class="cbam-btn cbam-btn--ghost" href="https://cbam.worldfast.es" target="_blank" rel="noopener">cbam.worldfast.es</a>
-		</div>
-	</div>
-</div></div></div></div><div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"><hr class="divider  " /></div></div></div></div>''',
+        'home_texts': {
+            'badge': 'New service',
+            'title': 'CBAM for <strong>fastener manufacturers</strong>',
+            'lead': ('Since 1 January 2026, imports of iron and steel fasteners covered by CBAM are subject to a '
+                     'carbon cost. Worldfast prepares your Monitoring Plan and supports you through emissions '
+                     'calculation and verification, with our own application.'),
+            'stat_default': ('7.01', 'EU default emissions – China, CN 7318 15'),
+            'stat_real': ('2.07', 'Verified actual emissions – example'),
+            'points': ['Monitoring Plan ready for the verifier', 'Emissions calculated per CN code',
+                       'Support through verification'],
+            'cta': 'Discover the service',
+            'app_label': 'How the application works',
+            'steps': ['Plant and processes', 'Steel purchases', 'Gas and electricity', 'Emissions per product',
+                      'Monitoring Plan'],
+        },
     },
 }
 
@@ -209,12 +217,71 @@ def build_page(lang):
     return cfg['out']
 
 
+HOME_START = '<!-- cbam-home:start -->'
+HOME_END = '<!-- cbam-home:end -->'
+HOME_JS = '<script src="/assets/cbam-home.js" defer></script>\n'
+HOME_TEMPLATE = '''<!-- cbam-home:start -->
+<div class="vc_row wpb_row vc_row-fluid cbam-home-row"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper">
+<section class="cbam-band cbam-band--video cbam-launch">
+	<div class="cbam-launch-grid">
+		<div class="cbam-launch-text">
+			<span class="cbam-badge"><i></i>{badge}</span>
+			<h2>{title}</h2>
+			<p class="cbam-launch-lead">{lead}</p>
+			<div class="cbam-launch-stats">
+				<div><strong>{d_val}</strong><small>t CO₂e/t</small><span>{d_label}</span></div>
+				<div class="cbam-launch-arrow" aria-hidden="true"></div>
+				<div class="is-good"><strong>{r_val}</strong><small>t CO₂e/t</small><span>{r_label}</span></div>
+			</div>
+			<ul class="cbam-launch-points">{points}</ul>
+			<div class="cbam-launch-buttons">
+				<a class="cbam-btn" href="{path}">{cta}</a>
+				<a class="cbam-btn cbam-btn--ghost" href="https://cbam.worldfast.es" target="_blank" rel="noopener">cbam.worldfast.es</a>
+			</div>
+		</div>
+		<div class="cbam-launch-app">
+			<div class="cbam-app-window" aria-label="{app_label}">
+				<div class="cbam-app-bar"><i></i><i></i><i></i><span>cbam.worldfast.es</span></div>
+				<div class="cbam-app-screens">{screens}</div>
+			</div>
+			<ol class="cbam-app-steps">{steps}</ol>
+		</div>
+	</div>
+</section>
+</div></div></div></div>
+<!-- cbam-home:end -->'''
+
+
+def home_block(lang):
+    t = LANGS[lang]['home_texts']
+    active = ' class="is-active"'
+    screens = ''.join(
+        f'<img src="/assets/cbam-app/paso-{i}.jpg" alt="{html.escape(name)}" width="900" height="596"'
+        f'{active if i == 1 else ""} loading="lazy" />'
+        for i, name in enumerate(t['steps'], 1))
+    steps = ''.join(
+        f'<li><button type="button" data-step="{i}"{active if i == 1 else ""}>'
+        f'<span>{i:02d}</span>{html.escape(name)}</button></li>'
+        for i, name in enumerate(t['steps'], 1))
+    return HOME_TEMPLATE.format(
+        badge=t['badge'], title=t['title'], lead=t['lead'],
+        d_val=t['stat_default'][0], d_label=t['stat_default'][1],
+        r_val=t['stat_real'][0], r_label=t['stat_real'][1],
+        points=''.join(f'<li>{p}</li>' for p in t['points']),
+        path=LANGS[lang]['path'], cta=t['cta'], app_label=t['app_label'],
+        screens=screens, steps=steps)
+
+
 def add_home_block(lang):
     cfg = LANGS[lang]
     h = read(cfg['home'])
-    block = cfg['home_block'].lstrip()
-    if 'cbam-home-row' in h:
-        # Sustituir el bloque existente para que los cambios de texto lleguen a la home
+    block = home_block(lang)
+    if HOME_START in h:
+        start = h.index(HOME_START)
+        end = h.index(HOME_END, start) + len(HOME_END)
+        h = h[:start] + block + h[end:]
+    elif 'cbam-home-row' in h:
+        # Bloque de la versión anterior (sin marcas): termina en una fila con <hr>
         start = h.rindex('<div class="vc_row', 0, h.index('cbam-home-row'))
         end = h.index('<hr class="divider  " /></div></div></div></div>', start)
         end += len('<hr class="divider  " /></div></div></div></div>')
@@ -223,6 +290,8 @@ def add_home_block(lang):
         i = h.index(cfg['products_heading'])
         row = h.rindex('<div class="vc_row', 0, i)
         h = h[:row] + block + h[row:]
+    if HOME_JS not in h:
+        h = h.replace('</body>', HOME_JS + '</body>', 1)
     write(cfg['home'], add_css(h))
 
 
