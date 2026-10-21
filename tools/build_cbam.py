@@ -256,7 +256,7 @@ def home_block(lang):
     t = LANGS[lang]['home_texts']
     active = ' class="is-active"'
     screens = ''.join(
-        f'<img src="/assets/cbam-app/paso-{i}.jpg" alt="{html.escape(name)}" width="900" height="596"'
+        f'<img src="/assets/cbam-app/paso-{i}.jpg" alt="{html.escape(name)}" width="900" height="370"'
         f'{active if i == 1 else ""} loading="lazy" />'
         for i, name in enumerate(t['steps'], 1))
     steps = ''.join(
