@@ -54,7 +54,17 @@ npm run dev        # http://localhost:3000
      | `CONTACT_FROM`   | opcional, por defecto `Web Worldfast <web@worldfast.es>` |
      | `CONTACT_TO`     | opcional, por defecto `info@worldfast.es` (admite varios separados por comas) |
    - Volver a desplegar para que la función coja las variables.
-3. Añadir el dominio `worldfast.es` / `www.worldfast.es` en Vercel y cambiar los DNS
+3. Antispam del formulario (`api/contact.js`):
+   - Se descartan los envíos con el campo trampa relleno o hechos en menos de 3 segundos.
+   - Los mensajes que parecen publicidad (SEO, captación de clientes, IA, enlaces, inglés
+     en páginas en español...) se envían igualmente, pero con **`[SPAM?]`** al principio
+     del asunto y una fila «Antispam» con los motivos. En Gmail se pueden archivar con un
+     filtro *De: web@worldfast.es* + *Asunto: SPAM*.
+   - Opcional, verificación de [Cloudflare Turnstile](https://dash.cloudflare.com/?to=/:account/turnstile):
+     crear un widget para `worldfast.es` y añadir en Vercel las variables
+     `TURNSTILE_SITE_KEY` (clave de sitio) y `TURNSTILE_SECRET_KEY` (clave secreta), y
+     volver a desplegar. Sin estas variables el formulario funciona igual, sin la verificación.
+4. Añadir el dominio `worldfast.es` / `www.worldfast.es` en Vercel y cambiar los DNS
    en cdmon a los que indique Vercel. **El correo (registros MX) se queda en cdmon**:
    solo hay que cambiar los registros A/CNAME de la web.
 
