@@ -232,3 +232,17 @@
   .cbam-play { position: static; margin-top: 18px; padding: 10px 18px 10px 16px; font-size: 13px; gap: 8px; }
   .cbam-play:before { border-width: 6px 0 6px 10px; }
 }
+
+/* Vea cómo funciona: tres vídeos cortos en tarjetas. Una columna en móvil, tres en escritorio. */
+.cbam-page .cbam-section p.cbam-videos-intro { max-width: 860px; margin: 0 auto 30px; text-align: center; font-size: 16px; }
+.cbam-videos { display: grid; grid-template-columns: 1fr; gap: 25px; max-width: 1170px; margin: 0 auto; }
+.cbam-video-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e1e1e1; border-top: 3px solid #efca30; }
+.cbam-video-card video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0a0f1d; }
+.cbam-video-card-body { padding: 18px 22px 22px; }
+.cbam-video-card-time { display: block; font-size: 12px; color: #777; text-transform: uppercase; letter-spacing: .5px; }
+.cbam-video-card h3 { font-size: 17px; line-height: 1.35; margin: 6px 0 8px; }
+.cbam-page .cbam-section .cbam-video-card p { margin: 0; font-size: 14px; line-height: 1.6; color: #555; }
+#cbam-videos .cbam-btn { text-align: center; }
+@media (min-width: 768px) {
+  .cbam-videos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
