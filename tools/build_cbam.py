@@ -236,12 +236,12 @@ HOME_TEMPLATE = '''<!-- cbam-home:start -->
 			<ul class="cbam-launch-points">{points}</ul>
 			<div class="cbam-launch-buttons">
 				<a class="cbam-btn" href="{path}">{cta}</a>
-				<a class="cbam-btn cbam-btn--ghost" href="https://cbam.worldfast.es" target="_blank" rel="noopener">cbam.worldfast.es</a>
+				<a class="cbam-btn cbam-btn--ghost cbam-btn--url" href="https://www.cbam.worldfast.es" target="_blank" rel="noopener">www.cbam.worldfast.es</a>
 			</div>
 		</div>
 		<div class="cbam-launch-app">
 			<div class="cbam-app-window" aria-label="{app_label}">
-				<div class="cbam-app-bar"><i></i><i></i><i></i><span>cbam.worldfast.es</span></div>
+				<div class="cbam-app-bar"><i></i><i></i><i></i><span>www.cbam.worldfast.es</span></div>
 				<div class="cbam-app-screens">{screens}</div>
 			</div>
 			<ol class="cbam-app-steps">{steps}</ol>

@@ -94,6 +94,7 @@
 .cbam-btn { display: inline-block; padding: 10px 30px; background: #efca30; color: #000 !important; font-size: 15px; text-transform: uppercase; text-decoration: none !important; border: 2px solid #efca30; transition: background .2s, color .2s; }
 .cbam-btn:hover { background: transparent; color: #333 !important; }
 .cbam-band--dark .cbam-btn:hover { color: #efca30 !important; }
+.cbam-btn--url { text-transform: none; }
 .cbam-btn--ghost { background: transparent; color: #333 !important; }
 .cbam-btn--ghost:hover { background: #efca30; color: #000 !important; }
 .cbam-band--dark .cbam-btn--ghost { color: #e7ebeb !important; }
